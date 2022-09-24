@@ -10,6 +10,7 @@ package Servicios;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import relaciones_ej1extra.Perro;
 import relaciones_ej1extra.Persona;
@@ -19,13 +20,13 @@ public class Servicios {
     
     Scanner leer=new Scanner(System.in).useDelimiter("\n");
     
-    Persona aux=new Persona();
-    Perro perroaux=new Perro();
+//    Persona aux=new Persona();
+//    Perro perroaux=new Perro();
     
     ArrayList<Persona> personas2=new ArrayList();
     HashMap<Integer, Perro> perros2=new HashMap();
     
-    public void crearPersona(){
+    public void crearPersonas(){
         
         Persona per1=new Persona("Sebastian","Girolmini",32,32569854);
         Persona per2=new Persona("Jose","Chatruc",51,6547852);
@@ -43,23 +44,90 @@ public class Servicios {
         
     }
     
-    public void crearPerro(){
+    
+    public void crearPerros(){
         
-         Perro p1=new Perro("toby","callejero",4,"mediano");
-         Perro p2=new Perro("firulais","beagle",5,"chiquito");
-         Perro p3=new Perro("filomena","pastor belga",6,"grande");
-         Perro p4=new Perro("Azul","Rotweiller",3,"mediano");
-         Perro p5=new Perro("Anita","Boxer",7,"mediano");
-         
-         perros2.put(1, p1);
-         perros2.put(2, p2);
-         perros2.put(3, p3);
-         perros2.put(4, p4);
-         perros2.put(5, p5);
-         
+        Perro p1=new Perro("toby","callejero",4,"mediano");
+        Perro p2=new Perro("firulais","beagle",5,"chiquito");
+        Perro p3=new Perro("filomena","pastor belga",6,"grande");
+        Perro p4=new Perro("Azul","Rotweiller",3,"mediano");
+        Perro p5=new Perro("Anita","Boxer",7,"mediano");
+    
+        perros2.put(1, p1);
+        perros2.put(2, p2);
+        perros2.put(3, p3);
+        perros2.put(4, p4);
+        perros2.put(5, p5);
+        
+}
+    
+    public void mostrarPersonas(){
+        
+        for (Persona aux : personas2) {
+            System.out.println(aux.toString());
+            
+        }
+    }
+        
+    public void mostrarPerros(){
+        for (Map.Entry<Integer, Perro> entry : perros2.entrySet()) {
+            Integer key = entry.getKey();
+            Perro value = entry.getValue();
+            
+            System.out.println("El perro "+ key +" "+"es "+ entry.getValue().getNombre()+" "
+                    +"y es "+entry.getValue().getTamaño()+" "+" de raza "+ entry.getValue().getRaza());
+            
+        }
+    }    
+     
+    
+    public void adoptarPerro(){
+        boolean bandera=true;
+        
+        System.out.println("Bienvenidos al refugio de adopcion:");
+        
+        do{
+           
+            System.out.println("las personas en lista de espera son las siguientes:");
+            mostrarPersonas();
+            System.out.println("***********************************:");
+            System.out.println("                         ");
+            System.out.println("Ingrese el nombre y Apellido de la persona:");
+            String nombre=leer.next();
+            String apellido=leer.next();
+            
+        for (int i = 0; i < personas2.size(); i++) {
+             if(nombre.equalsIgnoreCase(personas2.get(i).getNombre()) && apellido.equalsIgnoreCase(personas2.get(i).getApellido())){
+                 
+                 System.out.println("la persona ingresada es la siguiente:"+personas2.get(i));
+                 
+                bandera=false;
+                 personas2.remove(i);
+                
+        }else{
+                 System.out.println("no existe ninguna persona con esos datos");
+                 System.out.println("Ingrese el nombre y Apellido de la persona:");
+                nombre=leer.next();
+                apellido=leer.next();
+                
+             }
        
-         
+             
+            
+            
+        }
+       
+        
+        
+        
+    }while(bandera);
+    
+    
+    
     }
     
-    
 }
+    
+    
+    
+

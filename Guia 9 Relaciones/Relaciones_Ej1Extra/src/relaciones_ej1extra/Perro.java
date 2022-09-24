@@ -17,12 +17,12 @@ public class Perro {
     private String raza;
     private int edad;
     private String tamaño;
-    private ArrayList<Persona> personas;
+    private  ArrayList<Persona> personas=new ArrayList();
 
   
     
     public Perro() {
-        personas=new ArrayList();
+        
     }
     
     
@@ -32,7 +32,7 @@ public class Perro {
         this.raza = raza;
         this.edad = edad;
         this.tamaño = tamaño;
-      
+        
     }
 
     public String getNombre() {
@@ -74,6 +74,7 @@ public class Perro {
     public void setPersonas(ArrayList<Persona> personas) {
         this.personas = personas;
     }
+
 
     @Override
     public String toString() {

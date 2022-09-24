@@ -9,6 +9,8 @@
 
 package relaciones_ej1extra;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 
@@ -21,7 +23,7 @@ public class Persona {
     private String apellido;
     private Integer edad;
     private Integer dni;
-    private Perro perro;
+    private static HashMap<Integer,Perro> perros2=new HashMap();
     
     
     
@@ -29,21 +31,24 @@ public class Persona {
         
     }
 
-    public Persona(String nombre, String apellido, Integer edad, Integer dni, Perro perro) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.dni = dni;
-        this.perro = perro;
-    }
 
-     public Persona(String nombre, String apellido, Integer edad, Integer dni) {
+    public Persona(String nombre, String apellido, Integer edad, Integer dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.dni = dni;
         
     }
+
+    public static HashMap<Integer, Perro> getPerros2() {
+        return perros2;
+    }
+
+    public static void setPerros2(HashMap<Integer, Perro> perros2) {
+        Persona.perros2 = perros2;
+    }
+
+
    
 
     public String getNombre() {
@@ -78,47 +83,13 @@ public class Persona {
         this.dni = dni;
     }
 
-    public Perro getPerro() {
-        return perro;
-    }
-
-    public void setPerro(Perro perro) {
-        this.perro = perro;
-    }
-
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + ", perro=" + perro + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.perro);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Persona other = (Persona) obj;
-        if (!Objects.equals(this.perro, other.perro)) {
-            return false;
-        }
-        return true;
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + '}';
     }
 
   
-
-
+  
     
     
    

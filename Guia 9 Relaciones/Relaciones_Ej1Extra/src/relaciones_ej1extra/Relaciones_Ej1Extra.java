@@ -9,13 +9,21 @@
 
 package relaciones_ej1extra;
 
+import Servicios.Servicios;
+
 
 public class Relaciones_Ej1Extra {
 
     
     public static void main(String[] args) {
         
-      
+       Servicios s1=new Servicios();
+        
+       s1.crearPersonas();
+       s1.crearPerros();
+       s1.mostrarPersonas();
+       s1.mostrarPerros();
+       s1.adoptarPerro();
          
     }
     
