@@ -57,9 +57,7 @@ public class Relaciones_Ej2 {
         ArrayList<Jugador> aux=new ArrayList();
         aux=jugador.crearJugador();
         v1.llenarRevolver();
-        jueguito.llenarJuego(aux, v1);
-       
-        
+        jueguito.llenarJuego(aux, v1);         
         jueguito.ronda();
         
     }
