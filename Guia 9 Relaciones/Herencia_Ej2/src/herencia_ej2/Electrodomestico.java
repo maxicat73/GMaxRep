@@ -75,7 +75,7 @@ public class Electrodomestico {
     }
 
     public char comprobarConsumoEnergetico(char letra) {
-        char char1=Character.toLowerCase(letra);
+       
         if (letra == 'a' || letra == 'b' || letra == 'c' || letra == 'd' || letra == 'e') {
             return letra;
         } else {
