@@ -6,6 +6,7 @@
 package Servicios;
 
 import Entidad.Persona;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,14 +18,21 @@ public class ServicioPersona {
     
    
     
-    public Persona crearPersona(){
+    public Persona crearPersona() throws InputMismatchException{
         
         Persona p1=new Persona();
-        System.out.println("Ingrese los datos de la persona:");
-        System.out.println("Ingrese el nombre:");
+        System.out.print("Ingrese los datos de la persona:");
+        System.out.print("Ingrese el nombre:");
         p1.setNombre(leer.next());
-        System.out.println("Ingrese edad:");
-        p1.setEdad(leer.nextInt());
+        int edad;
+        
+             System.out.print("Ingrese edad:");
+             edad=leer.nextInt();
+        p1.setEdad(edad);
+        
+        
+        
+       
         System.out.println("Ingrese Sexo:");
         p1.setSexo(leer.next());
         System.out.println("Ingrese Altura:");
@@ -63,7 +71,8 @@ public class ServicioPersona {
     }
     
     public boolean esMayorDeEdad(Persona p1){
-        
+       
+       
        boolean esmayor=false;
        
         if(p1.getEdad()>18){
@@ -78,7 +87,17 @@ public class ServicioPersona {
     }
     
     
+    public void esMayorDeEdad2(){
+        try{
+            crearPersona();
+        }catch(InputMismatchException i){ 
+            System.out.print("No se ingresaron los datos correctos, ingrese nuevamente los datos");
+        }finally{
+            System.out.println("*------------------***");
+           
+        }
+    }
     
-       
+    
     
 }
