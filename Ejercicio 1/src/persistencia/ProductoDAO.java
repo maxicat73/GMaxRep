@@ -20,7 +20,7 @@ public final class ProductoDAO extends DAO {
             }
             
             conectarDatabase();
-            String sql = "INSERT INTO Producto (codigo,nombre,precio,codigo_fabricante)" + " VALUES(' " + producto.getCodigo() + " '   , ' " + producto.getNombre() + " '  , ' " + producto.getPrecio() + " ' ,  ' " + producto.getCodigo_fabricante() + " ' );";
+            String sql = "INSERT INTO Producto (codigo,nombre,precio,codigo_fabricante)" + " VALUES('" + producto.getCodigo() + "'   , '" + producto.getNombre() + "'  , '" + producto.getPrecio() + "' ,  '" + producto.getCodigo_fabricante() + "' );";
 
             ejecutarUpdate(sql);
 
