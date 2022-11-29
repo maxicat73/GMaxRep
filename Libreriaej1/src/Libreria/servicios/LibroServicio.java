@@ -138,7 +138,7 @@ public class LibroServicio {
     public List buscarPorEditorial(String editorial) {
 
         try {
-            return libros = emf.createQuery("SELECT a FROM Libro a JOIN Editorial e WHERE e.nombre LIKE :editorial")
+            return libros = emf.createQuery("SELECT a FROM Libro a JOIN a.editorial e WHERE e.nombre LIKE :editorial")
                     .setParameter("editorial", editorial).getResultList();
 
         } catch (Exception e) {
@@ -150,7 +150,7 @@ public class LibroServicio {
     public List buscarPorAutor(String autor) {
 
         try {
-            return libros = emf.createQuery("SELECT a FROM Libro a JOIN Autor au WHERE au.nombre LIKE :autor")
+            return libros = emf.createQuery("SELECT a FROM Libro a JOIN  a.autor au WHERE au.nombre LIKE :autor")
                     .setParameter("autor", autor).getResultList();
 
         } catch (Exception e) {

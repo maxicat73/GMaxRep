@@ -55,6 +55,11 @@ public class Editorial {
         this.alta = alta;
     }
     }
+
+    @Override
+    public String toString() {
+        return "Editorial{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
+    }
     
     
 }

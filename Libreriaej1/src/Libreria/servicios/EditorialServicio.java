@@ -52,9 +52,11 @@ public class EditorialServicio {
 
         try {
             return e1 = emf.find(Editorial.class, id);
+            
         } catch (Exception e) {
             throw e;
         }
+        
     }
 
     public void eliminarEditorial() {
@@ -67,6 +69,7 @@ public class EditorialServicio {
                 emf.getTransaction().begin();
                 emf.remove(e);
                 emf.getTransaction().commit();
+                System.out.println("Se elimino exitosamente la editorial");
             }
         } catch (Exception ex) {
             throw ex;
@@ -86,6 +89,7 @@ public class EditorialServicio {
                 emf.getTransaction().begin();
                 emf.merge(e);
                 emf.getTransaction().commit();
+                System.out.println("se modifico la editorial exitosamente");
             } else {
                 System.out.println("no se encontro la editorial ingresada");
             }

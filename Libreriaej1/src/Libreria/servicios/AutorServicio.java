@@ -77,7 +77,7 @@ public class AutorServicio {
                 emf.getTransaction().begin();
                 emf.merge(a);
                 emf.getTransaction().commit();
-                
+                System.out.println("Se modifico correctamente el  Autor");
             }
 
         } catch (Exception e) {

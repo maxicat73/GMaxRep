@@ -18,7 +18,7 @@ public class Ej1JPA {
         int respuesta;
             do {
             System.out.println("\n============= LIBRERIA =============\n");
-            System.out.println("What would you like to do?");
+            System.out.println("A continuacion las acciones disponibles: ¿Que desea hacer?");
             System.out.println("");
             System.out.println("1) Crear autor");
             System.out.println("2) Modificar Autor");
@@ -67,6 +67,7 @@ public class Ej1JPA {
                     System.out.println("ingrese el isbn a buscar");
                     Long isbn=leer.nextLong();
                     ls.buscarIsbn(isbn);
+                    
                 break;
                 case 12:
                     System.out.println("ingrese el titulo que desea buscar");

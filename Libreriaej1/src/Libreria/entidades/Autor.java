@@ -17,6 +17,8 @@ public class Autor {
     public Autor() {
     }
 
+
+
  public Autor(String nombre, Boolean alta) {
         setNombre(nombre);
         setAlta(alta);
@@ -50,6 +52,10 @@ public class Autor {
     }
     }
     
+        @Override
+    public String toString() {
+        return "Autor{" + "id=" + id + ", nombre=" + nombre + ", alta=" + alta + '}';
+    }
     
     
 }
