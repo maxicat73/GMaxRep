@@ -24,32 +24,34 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.anio = anio;
-        this.ejemplares = ejemplares;
-        this.ejemplaresPrestados = ejemplaresPrestados;
-        this.ejemplaresRestantes = ejemplaresRestantes;
-        this.alta = alta;
-        this.autor = autor;
-        this.editorial = editorial;
+ public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+        setIsbn(isbn);
+        setTitulo(titulo);
+        setAnio(anio);
+        setEjemplares(ejemplares);
+        setEjemplaresPrestados(ejemplaresPrestados);
+        setEjemplaresRestantes(ejemplaresRestantes);
+        setAlta(alta);
+        setAutor(autor);
+        setEditorial(editorial);
     }
-
     public Long getIsbn() {
         return isbn;
     }
 
     public void setIsbn(Long isbn) {
+      if(isbn!=null){
         this.isbn = isbn;
     }
-
+    }
     public String getTitulo() {
         return titulo;
     }
 
     public void setTitulo(String titulo) {
+     if(titulo!=null){
         this.titulo = titulo;
+    }
     }
 
     public Integer getAnio() {
@@ -57,7 +59,10 @@ public class Libro {
     }
 
     public void setAnio(Integer anio) {
+        
+        if(anio!=null){
         this.anio = anio;
+    }
     }
 
     public Integer getEjemplares() {
@@ -65,7 +70,9 @@ public class Libro {
     }
 
     public void setEjemplares(Integer ejemplares) {
+      if(ejemplares!=null){
         this.ejemplares = ejemplares;
+    }
     }
 
     public Integer getEjemplaresPrestados() {
@@ -73,15 +80,19 @@ public class Libro {
     }
 
     public void setEjemplaresPrestados(Integer ejemplaresPrestados) {
+        if(ejemplaresPrestados!=null){
         this.ejemplaresPrestados = ejemplaresPrestados;
     }
-
+    }
     public Integer getEjemplaresRestantes() {
         return ejemplaresRestantes;
     }
 
     public void setEjemplaresRestantes(Integer ejemplaresRestantes) {
+    
+    if(ejemplaresRestantes!=null){    
         this.ejemplaresRestantes = ejemplaresRestantes;
+    }
     }
 
     public Boolean getAlta() {
@@ -89,7 +100,9 @@ public class Libro {
     }
 
     public void setAlta(Boolean alta) {
+        if(alta!=null){
         this.alta = alta;
+    }
     }
 
     public Autor getAutor() {
@@ -101,11 +114,14 @@ public class Libro {
     }
 
     public Editorial getEditorial() {
+        
         return editorial;
     }
 
     public void setEditorial(Editorial editorial) {
+        if(editorial!=null){
         this.editorial = editorial;
+    }
     }
 
 }

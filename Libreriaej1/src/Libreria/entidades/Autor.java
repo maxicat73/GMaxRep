@@ -17,10 +17,9 @@ public class Autor {
     public Autor() {
     }
 
-    public Autor(Integer id, String nombre, Boolean alta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.alta = alta;
+ public Autor(String nombre, Boolean alta) {
+        setNombre(nombre);
+        setAlta(alta);
     }
 
     public Integer getId() {
@@ -28,25 +27,28 @@ public class Autor {
     }
 
     public void setId(Integer id) {
+       if(id!=null){
         this.id = id;
     }
-
+    }
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
+       if(nombre!=null){
         this.nombre = nombre;
     }
-
+    }
     public Boolean getAlta() {
         return alta;
     }
 
     public void setAlta(Boolean alta) {
+        if(alta!=null){
         this.alta = alta;
     }
-    
+    }
     
     
     
