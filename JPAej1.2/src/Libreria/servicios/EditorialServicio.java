@@ -25,18 +25,19 @@ public class EditorialServicio {
     public void crearEditorial() {
 
         try {
+            
             System.out.println("Ingrese los datos de la editorial:");
             System.out.println("ingrese el nombre de la editorial");
             String nombre = leer.next();
 
             if (buscarPorNombre(nombre).isEmpty()) {
+                Editorial e2=new Editorial();
+                e2.setNombre(nombre);
 
-                e1.setNombre(nombre);
-
-                e1.setAlta(true);
+                e2.setAlta(true);
 
                 emf.getTransaction().begin();
-                emf.persist(e1);
+                emf.persist(e2);
                 emf.getTransaction().commit();
                 System.out.println("Se creo Exitosamente la Editorial");
             } else {
@@ -107,5 +108,14 @@ public class EditorialServicio {
         }
 
     }
-
+    public void mostrarEditoriales (List<Editorial> editoriales) throws Exception{
+        System.out.println("\nEDITORIALES");
+        System.out.println("__________________________");
+        System.out.printf("|%-3s|%-13s|%-7s|\n", "ID", "NOMBRE", "ALTA", "");
+        for (Editorial aux : editoriales) {
+            System.out.printf("|%-3s|%-13s|%-7s|\n", aux.getId(), aux.getNombre(), "");
+        }
+        System.out.println("__________________________");
+    } 
+    
 }

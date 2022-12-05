@@ -79,20 +79,30 @@ public class LibroServicio {
 
         try {
             System.out.println("Ingrese el isbn: ");
-
+            int prestar;
             Long isbn = leer.nextLong();
             Libro l2 = buscarIsbn(isbn);
             if (l2 != null) {
+                System.out.println("-------------------");
+                System.out.println("Cantidad de Ejemplares " + l2.getEjemplares());
+                System.out.println("-------------------");
+                System.out.println("Cantidad Actual de Ejemplares prestados " + l2.getEjemplaresPrestados());
 
-                System.out.println("ingrese el año a modificar");
-                l2.setAnio(leer.nextInt());
+                System.out.println("ingrese la cantidad de  ejemplares a prestar");
+                prestar = leer.nextInt();
+
+                l2.setEjemplaresPrestados(l2.getEjemplaresPrestados() + prestar);
+                l2.setEjemplaresRestantes(l2.getEjemplares() - l2.getEjemplaresPrestados());
+
+                System.out.println("Ejemplares Restantes: " + l2.getEjemplaresRestantes());
 
                 emf.getTransaction().begin();
                 emf.merge(l2);
                 emf.getTransaction().commit();
+                System.out.println("el libro se modifico correctamente.");
 
             } else {
-                System.out.println("el libro se modifico correctamente.");
+                System.out.println("el libro ingresado no se encontro.");
             }
         } catch (Exception e) {
             throw e;
@@ -158,5 +168,17 @@ public class LibroServicio {
         }
 
     }
+    
+    
+      public void mostrarLibros(List<Libro> libros) throws Exception{
+        System.out.println("\nLIBROS");
+        System.out.println("__________________________________________________________________________________________________________________________________");
+        System.out.printf("|%-20s|%-20s|%-7s|%-13s|%-13s|%-13s|%-7s|%-13s|%-13s|\n", "ISBN", "TITULO", "AÑO", "EJEMPLARES", "PRESTADOS", "RESTANTES", "ALTA", "AUTOR", "EDITORIAL", "");
+        for (Libro aux : libros) {
+            System.out.printf("|%-20s|%-20s|%-7s|%-13s|%-13s|%-13s|%-7s|%-13s|%-13s|\n",
+            aux.getIsbn(), aux.getTitulo(), aux.getAnio(), aux.getEjemplares(), aux.getEjemplaresPrestados(), aux.getEjemplaresRestantes(), aux.getAlta(), aux.getAutor().getNombre(), aux.getEditorial().getNombre(), "");
+        }
+        System.out.println("__________________________________________________________________________________________________________________________________");
+    }   
 
 }

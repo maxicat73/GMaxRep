@@ -110,5 +110,16 @@ public class AutorServicio {
         }
 
     }
+    public void mostrarAutores(List<Autor> autores) throws Exception{
+        System.out.println("\nAUTORES");
+        System.out.println("__________________________");
+        System.out.printf("|%-3s|%-13s|%-7s|\n", "ID", "NOMBRE", "ALTA", "");
+        for (Autor aux : autores) {
+            System.out.printf("|%-3s|%-13s|%-7s|\n", aux.getId(), aux.getNombre(), "");
+        }
+        System.out.println("__________________________");
+    } 
+    
+    
 
 }
